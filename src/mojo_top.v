@@ -27,6 +27,7 @@ assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
-assign led = 8'b0;
+assign led[7:1] = 7'b0101010;
+blinker blinkLastLed(.clk(clk), .rst(rst), .blink(led[0]));
 
 endmodule
