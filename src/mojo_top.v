@@ -27,7 +27,20 @@ assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
-assign led[7:1] = 7'b0101010;
-blinker blinkLastLed(.clk(clk), .rst(rst), .blink(led[0]));
+// generate 8 pulse waveforms and output to LED array
+genvar i;
+generate
+    for (i = 0; i < 8; i=i+1) begin: pwm_gen_loop
+        pwm #(.CTR_SIZE(3)) pwm (
+            .rst(rst),
+            .clk(clk),
+            .compare(i),
+            .pwm(led[i])
+        );
+    end
+endgenerate
+
+//assign led[7:1] = 7'b0101010;
+//blinker blinkLastLed(.clk(clk), .rst(rst), .blink(led[0]));
 
 endmodule
