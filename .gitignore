@@ -60,8 +60,5 @@ pwm_isim_beh.wdb
 pwm_isim_beh1.wdb
 sim_top_isim_beh.exe
 sim_top_isim_beh1.wdb
-src/pwm.v
-src/sim_top.v
 xilinxsim.ini
-
 iseconfig/mojo_top.xreport
